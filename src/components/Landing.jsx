@@ -1,14 +1,10 @@
 import React from "react";
-import Header from "./Header";
 import Welcome from "./Welcome";
 import WhoWeAre from "./WhoWeAre";
 import Services from "./Services";
-import ScrollToTopButton from "./ScrollToTopButton";
 import Destinations from "./Destinations";
 import Advantages from "./Advantages";
-import Footer from "./Footer";
 import { motion } from "framer-motion";
-// import ScrollToTopButton from "@components/ScrollToTopButton";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -18,9 +14,9 @@ const sectionVariants = {
 const Landing = () => {
   return (
     <>
-      <header>
+      {/* <header>
         <Header />
-      </header>
+      </header> */}
       <main className="font-roboto">
         <section id="welcome">
           <Welcome />
@@ -65,7 +61,7 @@ const Landing = () => {
         >
           <Advantages />
         </motion.section>
-        <motion.section
+        {/* <motion.section
           id="footer"
           initial="hidden"
           whileInView="visible"
@@ -75,7 +71,7 @@ const Landing = () => {
         >
           <Footer />
         </motion.section>
-        <ScrollToTopButton />
+        <ScrollToTopButton /> */}
       </main>
     </>
   );

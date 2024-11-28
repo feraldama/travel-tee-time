@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { TeeTimeIcon } from "./Icons";
 
 const navLinks = [
@@ -7,14 +7,20 @@ const navLinks = [
   { href: "#who-we-are", text: "Quienes somos" },
   { href: "#services", text: "Nuestros servicios" },
   { href: "#destination", text: "Circuitos de golf" },
-  { href: "#advantages", text: "Ventajas" },
+  // { href: "#advantages", text: "Ventajas" },
+  { href: "/instructors", text: "Clases de Golf" },
 ];
 
 const NavLinks = () => {
   const handleScroll = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (id.startsWith("/")) {
+      // Redirigir si es una URL absoluta
+      window.location.href = id;
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   };
 
@@ -34,23 +40,10 @@ const NavLinks = () => {
   );
 };
 
-// const Button = ({ primary = false, children, ...props }) => (
-//   <button
-//     type="button"
-//     className={`py-2 px-4 font-medium rounded-xl text-base transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-tuiu-green-300 ${
-//       primary
-//         ? "text-white bg-tuiu-green-300 hover:bg-tuiu-green-400 mr-4 xl:mr-0"
-//         : "text-tuiu-200 bg-white hover:bg-gray-100"
-//     }`}
-//     {...props}
-//   >
-//     {children}
-//   </button>
-// );
-
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
+  const location = useLocation(); // Hook para obtener la ruta actual
 
   return (
     <nav className="bg-tuiu-green-500 text-tuiu-gray-100 font-roboto font-medium text-base">
@@ -64,41 +57,46 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-            <button
-              onClick={toggleMenu}
-              className="p-2 xl:hidden focus:outline-none focus:ring-2 focus:ring-tuiu-green-300 rounded"
-              aria-expanded={menuOpen}
-              aria-controls="mobile-menu"
-              aria-label={
-                menuOpen
-                  ? "Cerrar menú de navegación"
-                  : "Abrir menú de navegación"
-              }
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="w-6 h-6"
+            {location.pathname === "/" && (
+              <button
+                onClick={toggleMenu}
+                className="p-2 xl:hidden focus:outline-none focus:ring-2 focus:ring-tuiu-green-300 rounded"
+                aria-expanded={menuOpen}
+                aria-controls="mobile-menu"
+                aria-label={
+                  menuOpen
+                    ? "Cerrar menú de navegación"
+                    : "Abrir menú de navegación"
+                }
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d={
-                    menuOpen
-                      ? "M6 18L18 6M6 6l12 12"
-                      : "M4 6h16M4 12h16M4 18h16"
-                  }
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d={
+                      menuOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
+                  />
+                </svg>
+              </button>
+            )}
           </div>
 
-          <div className="hidden xl:flex xl:items-center xl:space-x-8">
-            <NavLinks />
-          </div>
+          {/* Mostrar NavLinks solo en la URL principal */}
+          {location.pathname === "/" && (
+            <div className="hidden xl:flex xl:items-center xl:space-x-8">
+              <NavLinks />
+            </div>
+          )}
         </div>
       </div>
 

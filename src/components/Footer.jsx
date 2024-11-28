@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -9,6 +10,17 @@ import {
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    // Hacer scroll al inicio
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Redirigir después de un pequeño retraso
+    setTimeout(() => {
+      navigate("/");
+    }, 50); // Ajusta el tiempo según el comportamiento deseado
+  };
 
   return (
     <section className="bg-tuiu-green-500 text-white py-14">
@@ -17,7 +29,12 @@ const Footer = () => {
           <div className="flex justify-between flex-col lg:flex-row space-y-8">
             {/* Logo */}
             <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4 pt-3">
-              <TeeTimeIcon />
+              <button
+                onClick={handleLogoClick}
+                className="focus:outline-none" // Cambiar Link a un botón para manejar eventos personalizados
+              >
+                <TeeTimeIcon />
+              </button>
             </div>
 
             {/* Ayuda */}
