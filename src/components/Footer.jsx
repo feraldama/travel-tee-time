@@ -22,6 +22,14 @@ const Footer = () => {
     }, 50); // Ajusta el tiempo según el comportamiento deseado
   };
 
+  const handleFacebookClick = () => {
+    console.log("log: 🚀  handleFacebookClick:");
+    window.open(
+      "https://www.facebook.com/profile.php?id=61567950177719",
+      "_blank"
+    );
+  };
+
   return (
     <section className="bg-tuiu-green-500 text-white py-14">
       <div className="max-w-[1920px] mx-auto px-4">
@@ -44,15 +52,29 @@ const Footer = () => {
               </span>
               <span className="flex flex-row items-center gap-2">
                 <a
-                  href="https://wa.me/34659011723?text=Hola,%20estoy%20interesado%20en%20más%20información."
+                  href="https://wa.me/34623935329?text=Hola,%20estoy%20interesado%20en%20más%20información."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
                 >
                   <WhatsAppIcon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
-                  <p className="text-xl">Atención al Cliente</p>
+                  <p className="text-xs sm:text-sm md:text-base lg:text-[21.77px]">
+                    Atención al Cliente
+                  </p>
                 </a>
               </span>
+              <a
+                href="mailto:travelteetime@travelteetime.com"
+                className="text-xs sm:text-sm md:text-base lg:text-[21.77px] my-1"
+              >
+                travelteetime@travelteetime.com
+              </a>
+              <a
+                href="tel:+34623935329"
+                className="text-xs sm:text-sm md:text-base lg:text-[21.77px] my-1"
+              >
+                Tel: +34 623 93 53 29
+              </a>
             </div>
 
             {/* Redes Sociales */}
@@ -61,9 +83,23 @@ const Footer = () => {
                 Seguinos
               </span>
               <span className="flex justify-center gap-6 sm:gap-8 md:gap-10">
-                <FacebookIcon className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" />
-                <InstagramIcon className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" />
-                <TwitterIcon className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" />
+                <a
+                  href="https://www.facebook.com/profile.php?id=61567950177719"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <FacebookIcon className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" />
+                </a>
+                <a
+                  href="https://www.instagram.com/travelteetimecostabrava/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <InstagramIcon className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" />
+                </a>
+                {/* <TwitterIcon className="w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8" /> */}
               </span>
             </div>
           </div>
