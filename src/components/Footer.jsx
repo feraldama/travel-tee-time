@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import {
   FacebookIcon,
   InstagramIcon,
-  TwitterIcon,
   WhatsAppIcon,
   TeeTimeIcon,
 } from "./Icons"; // Ajusta la ruta si es necesario
@@ -20,14 +19,6 @@ const Footer = () => {
     setTimeout(() => {
       navigate("/");
     }, 50); // Ajusta el tiempo según el comportamiento deseado
-  };
-
-  const handleFacebookClick = () => {
-    console.log("log: 🚀  handleFacebookClick:");
-    window.open(
-      "https://www.facebook.com/profile.php?id=61567950177719",
-      "_blank"
-    );
   };
 
   return (
