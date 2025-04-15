@@ -43,7 +43,7 @@ const Footer = () => {
               </span>
               <span className="flex flex-row items-center gap-2">
                 <a
-                  href="https://wa.me/34623935329?text=Hola,%20estoy%20interesado%20en%20más%20información."
+                  href="https://wa.me/34659011723?text=Hola,%20estoy%20interesado%20en%20más%20información."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2"
@@ -61,10 +61,10 @@ const Footer = () => {
                 travelteetime@travelteetime.com
               </a>
               <a
-                href="tel:+34623935329"
+                href="tel:+34659011723"
                 className="text-xs sm:text-sm md:text-base lg:text-[21.77px] my-1"
               >
-                Tel: +34 623 93 53 29
+                Tel: +34 659 01 17 23
               </a>
             </div>
 
